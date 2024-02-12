@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\fornt\UserController;
 
-
+// php artisan route:list //for know all route in your project
 
 // route parameters
 
@@ -43,7 +43,7 @@ Route::group([ 'prefix' => 'user' , 'namespace' => 'fornt'], function(){
     // all route
 });
 
-
-
-
+//resource include index , store ,.....
+Route::resource('test' , 'testController' );
+// can call the function by this route('test.x') 
 
