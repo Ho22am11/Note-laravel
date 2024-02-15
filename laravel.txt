@@ -1,1 +1,8 @@
 php artisan serv --port=8001 // for run two project in same time
+
+{{URl::asset('css/styles.css')}} // if the file in public folder
+
+
+{{trans('...')}} == {{ __('...')}}
+
+Auth::routes(); // include login and regester and logout routes  
