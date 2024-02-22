@@ -6,3 +6,42 @@ php artisan serv --port=8001 // for run two project in same time
 {{trans('...')}} == {{ __('...')}}
 
 Auth::routes(); // include login and regester and logout routes  
+
+****
+<input *class="form-control fc-datepicker"* name="..." placeholder="..." type="text" **value="{{ date('Y-m-d') }}**">
+* class = "form-control fc-datepicker" != class="form-control"
+1-form-control // use on form html input عادي
+2- form-control fc-datepicker // fc-datepicker to do table of date YY/MM/DD and    <script src="{{ URL::asset('assets/js/form-elements.js') }}"></script>
+**value="{{ date('Y-m-d') }} // to show date of day now
+*******
+/* example of relation many to many
+         * we have already relation between sections and teachers
+         * if we went know sections related teacher
+         * you give me id of the teacher
+         * ----------
+         * $teachers = Teacher::findOrFail($id);
+         * return $teachers->sections;  // sections her is relationship we make it in model Teacher
+         * -------
+         * and if we went know who is teachers of section
+         * -------
+         * $sections = Section::findOrFail($id);
+         * return $sections->teachers;
+
+*/
+*when we store  relation many to many in our table relation many to many
+-----------------------------------------------------
+$sections->teachers()->attach($request->teacher_id);* // teachers() is is relationship we make it in model Section
+-----------------------------------------------------
+******
+/* example of select multiple you can select one or more element
+  <select multiple name="teacher_id[]" class="form-control" id="exampleFormControlSelect2" >
+         <!--placeholder-->
+         <option value="" selected disabled>{{ trans('teachers.teacher_chose')}}</option>
+            @foreach ($teachers as $teacher)
+               <option value="{{ $teacher->id  }}">{{ $teacher->Name }}</option>
+            @endforeach
+                                           
+   </select>
+*when we store elements of  select multiple
+*$sections->teachers_id = attach($request->teacher_id);
+******

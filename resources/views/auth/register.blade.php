@@ -54,7 +54,12 @@
                 <x-button class="ms-4">
                     {{ __('Register') }}
                 </x-button>
+
+              
             </div>
         </form>
+        <x-button class="ms-4">
+            <a href="{{ url('redirect/facebook')}}"> login with face </a>
+          </x-button>
     </x-authentication-card>
 </x-guest-layout>
