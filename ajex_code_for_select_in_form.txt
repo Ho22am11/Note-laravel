@@ -1,0 +1,76 @@
+1-create frist select
+---------------------
+*ex:
+/*<div class="col">
+       <select name="grade_id" id="grade_id" class="form-control">
+       <option  selected> اختار مما يلي</option>
+            @foreach ($Grades as $Grade)
+                   <option value="{{ $Grade->id}}" >{{ $Grade->name }}</option>
+            @endforeach                         
+        </select>
+                                
+   </div>
+*/
+*1-add this onchange="console.log($(this).val())" in <select ...here...> // onchange main any change in select //console.log($(this).val()) main take value in <option>
+*ex: <select name="grade_id" id="grade_id" class="form-control"  onchange="console.log($(this).val())">
+----------------------
+2-create select we went to fill it data
+---------------------------------------
+**ex:
+/* <div class="col">
+        <select id="classrooms" name="classrooms" class="form-control" onchange="console.log($(this).val())">
+        <option  selected>حدد يا معلم</option>
+                                    
+        </select>
+    </div> 
+*/ 
+**that shoud empety
+-------------------
+3- code ajex in down code
+-------------------------
+*** it like that
+/* <script>
+    $(document).ready(function() {
+        $('select[name="grade_id"]').on('change', function() { // grade_id name select is changed
+            var GradeId = $(this).val();   // $(this).val() this is value we take of select by option 
+            if (GradeId) {
+                $.ajax({
+                    url: "{{ URL::to('section') }}/" + GradeId,   //we go in this url
+                    type: "GET",
+                    dataType: "json",
+                    success: function(data) {
+                        $('select[name="classrooms"]').empty();  // classrooms is the select we will add date in it
+                        $.each(data, function(key, value) {      // key and value they come from controller
+                            $('select[name="classrooms"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    },
+                });
+
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+
+    });
+
+ </script>
+*/
+-----------------------------------------------
+4-we write route
+****ex: Route::get('/section/{id}',[Controller::class ,'getclassroom']);
+------------------------------------------------
+5- now we go controller
+****create public function and write this
+****ex:
+/*public function getclassroom($id) // this id come of route and route get it from ajex code and ajex code get it from <option>
+    {
+        $classrooms = Classroom::where("grade_id", $id)->pluck("name", "id"); // grade_id is forign key in Classroom table - //pluck is function get date of table Grade 
+        return json_encode($classrooms); // data return as json
+    }
+*/
+
+
+
+
+
+

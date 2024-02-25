@@ -45,3 +45,15 @@ $sections->teachers()->attach($request->teacher_id);* // teachers() is is relati
 *when we store elements of  select multiple
 *$sections->teachers_id = attach($request->teacher_id);
 ******
+*you know compact we can used diffrent way
+*ex:
+/* public function Create_Student(){
+        $data['Genders'] = Gender::all();
+        $data['Parents'] = My_Parent::all();
+        $data['Grades'] = Grade::all();
+        $data['Nationalities'] = Nationalitie::all();
+        $data['religions'] = Religion::all();
+        return view('student.add_student' , $data);
+    }  
+*/ *-*
+------------------------------------------------------------

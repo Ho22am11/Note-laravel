@@ -1,0 +1,111 @@
+one way with controller
+**********************
+1- create filder in app filder and named it 'Repository'
+2- create in 'Repository' to file 
+** 1-RepositoryInterface ex:StudentRepositoryInterface.php // include name of functions
+** 2-Repository ex:StudentRepository.php                       // include all code of function 
+**------------------------
+** RepositoryInterface  how like 
+/*  <?php
+
+     namespace App\Repository;
+ 
+     interface StudentRepositoryInterface{
+        // her name of function is exist in Repository.php
+        ex: public function Create_Student();
+
+        ex:public function getsections($id);
+    }
+*/
+--------------------------
+** Repository how like 
+/* <?php
+
+   namespace App\Repository;
+   
+   class Repository implements RepositoryInterface{
+    function and all code 
+   }
+  ex:class StudentRepository implements StudentRepositoryInterface {
+
+    public function Create_Student(){
+        $data['Genders'] = Gender::all();
+        $data['Parents'] = My_Parent::all();
+        $data['Grades'] = Grade::all();
+        $data['Nationalities'] = Nationalitie::all();
+        $data['religions'] = Religion::all();
+        return view('student.add_student' , $data);
+    }  
+
+}
+--------------------------
+3- create Providers
+*** how create Provider
+***in your terminal write it 'php artisan make:provider RepoServiceProvider' // name it RepoServiceProvider
+-----------------------------------
+***how it like
+/* <?php
+
+   namespace App\Providers;
+
+   use Illuminate\Support\ServiceProvider;
+
+   class RepoServiceProvider extends ServiceProvider
+   {
+    /**
+     * Register services.
+     */
+    public function register(): void
+    {
+      // write the positoryInterface and Repository
+      ex:
+
+        $this->app->bind(
+            'App\Repository\TeacherepositoryInterface',
+            'App\Repository\TeacherRepository');
+
+         $this->app->bind(
+            'App\Repository\StudentRepositoryInterface',
+            'App\Repository\StudentRepository');
+      End_ex
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot(): void
+    {
+        //
+    }
+}
+--------------------------
+4-go to your controller
+****in top [ use App\Repository\RepositoryInterface; ] ex: use App\Repository\StudentRepositoryInterface;
+****and write the function ex:
+/*
+    protected $Student ;
+    public function __construct(StudentRepositoryInterface $Student)
+    {
+        $this->Student = $Student ;
+        
+    }
+*/
+****how use all this *-*
+**** 1- go the function who the route go it write this
+****ex:
+/*  public function create()
+    {
+        return $this->Student->Create_Student(); //$this->Student from function __construct  // Create_Student() this from Repository
+    }
+*/
+
+
+
+
+
+
+
+
+
+
+
