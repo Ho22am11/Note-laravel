@@ -1,0 +1,8 @@
+1-make Request by  php artisan make:request NmaeRequest
+2- go to request and chang flase to ture
+3-write in function rules your valided
+4-go to controller and chang Request to NmaeRequest
+*ex:public function store(StoreStudentRequest $request)
+    {
+        return $request ;
+    }
