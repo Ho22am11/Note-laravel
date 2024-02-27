@@ -1,0 +1,11 @@
+[- $what the Transaction -]
+-> is two or more prosess in DB if on process not commit all anther process not commit
+--------------------------------------------------------------------------------------
+*how used it 
+------------
+1- in begin process write is ' DB::beginTransaction(); '
+--------------------------------------------------------
+2- in end process write is   ' DB::commit(); '
+--------------------------------------------
+3- don't forget ' use Illuminate\Support\Facades\DB; '  *-*
+----------------------------------------------------
