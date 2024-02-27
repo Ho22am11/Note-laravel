@@ -1,0 +1,45 @@
+[- what Polymorphic Relationship -]
+-> when we make table for two or more aother table and this table do same like table for images or attachments ex: make table images_student and agin make image_teacher.
+-> we understand more now
+-------------------------
+$how we do Polymorphic relationship
+-----------------------------------
+1-create table of Polymorphic 
+*ex: php artisan make:model Image -m
+------------------------------------
+2-write the relation in model Image
+**if we do it one to many
+**ex:
+/*public function imageable()
+   {
+     return $this->morphTo();   //'morphTo' relation one to many
+   }
+*/ *-*
+----------------------------------------------------------------
+3-Go to migration of image
+***must be write like that   
+***ex:
+/*    Schema::create('images', function (Blueprint $table) {
+            $table->id();
+            $table->string('filename');            // name file in DB or name any element 
+            $table->integer('imageable_id');      //id of object we related with him  //ex:student_id  // like forign key but not forign key
+            $table->string('imageable_type');    // what model we related with him // ex:Student table // must be store like 'App\Models\Table'
+        });
+*/ *_*
+-----------------------------------------------------------------------------------------------------------------------------------------------
+4-Go to aother table we related with him
+****write the relation in table
+****ex: in Table student
+/*public function images(){
+        return $this->morphMany('App\Models\image' , 'imageable');  // 'morphMany' relation one to many // 'imageable' the function we write in image table
+    }
+*/ -_-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+$how we can used is no 
+-look this code in controller and will understand
+/* public function index($id){                      //id of student
+       $students = Student::find($id)
+       $imagestudent = $students->images;          //'images' is function we write in Student Table his respensaltity of relations
+       dd($imagestudent);                         // dd() is function show the data problem
+*/ (: (; 
+-----------------------------------------------------------------------------------------------------------------------------------

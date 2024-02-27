@@ -1,0 +1,44 @@
+1- we start from form
+---------------------
+*1-enctype="multipart/form-data" add in <form ...... >
+*2-create input
+*ex:
+/* <div class="form-group">
+       <label for="academic_year">add image</label>
+       <input type="file" accept="image/*" name="photos[]" multiple>     // ' accept="image/*" ' input accept image only  //' "photos[]" ' if you send two or more image // 'multiple' for select two or more photo
+   </div>
+*/ *-*
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2-create path
+-------------
+**1- Go to config/filesystem
+**2- write your path be like
+**ex:
+/*'upload_attachments' => [
+            'driver' => 'local',                                
+            'root' => public_path('/'),                        // 'public_path' make root in filder public
+            'url' => env('APP_URL').'/storage',   
+            'visibility' => 'public',
+        ],
+*/ -_-
+-----------------------------------------------------------------------------------------------------------
+3-go to controller
+*** store in DB and public folder
+***ex:
+/* if($request->hasfile('photos'))                                                                                         //check if user send image or not
+        {
+            foreach($request->file('photos') as $file){                                                                   //foreach for if you send two or more image
+                $name = $file->getClientOriginalName();                                                                  // '$name' name of image in DB and public folder  //'getClientOriginalName()' get type file                
+                $file->storeAs('attachments/students/'.$request->Name , $name , 'upload_attachments' );                 // ' 'attachments/students/'.$request->Name ' is make url for store 
+                                                                                                                       // ' $name ' is file name  // 'upload_attachments' is path we crete in step 2
+                $images = new image();                            // store in DB
+                $images->filename = $name ;
+                $images->imageable_id =  $students->id ;
+                $images->imageable_type = 'App\Models\Student' ;
+                $images->save();
+                
+
+            }
+        }
+*/ '-'
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
