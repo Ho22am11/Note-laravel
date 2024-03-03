@@ -1,0 +1,14 @@
+1-open the file routes/api.php
+------------------------------
+2- write route normal ' Route::get('/posts', [PostController::class, 'index']); ' but it url is api/posts
+---------------------------------------------------------------------------------------------------------
+3-now we go to controller PostController and write in index code return data from DB as json
+--------------------------------------------------------------------------------------------
+4- for return data 
+*ex:
+/* public function index(){
+        $posts = Post::get();                     // get all data of post model
+        $mg = ['return sucessed'];                // this is message we send to developer      
+        return response($posts , 200 ,$mg );      //response() make data return as json
+    }
+*/

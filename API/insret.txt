@@ -1,0 +1,23 @@
+1- create routr Route::post('/posts', [PostController::class, 'store'])
+-----------------------------------------------------------------------
+2-go to recouse 
+/*return [
+            'title' => $this->title ,
+            'body' => $this->title ,
+        ];
+*/  *-*
+------------------------------------------------------------------------
+2- go to controller
+/* public function store(Request $request){
+
+        $post = Post::create($request->all());
+
+        if($post){
+            return $this->ApiResponse(new PostResource($post) , 'the post stored' , 201);
+        }
+
+        return $this->ApiResponse( null , 'the post not stored' , 400);
+
+    }
+*/ '-'
+---------------------------------------------------------------------------------------------

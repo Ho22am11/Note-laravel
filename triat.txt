@@ -1,0 +1,24 @@
+1- create trait in folder controller   //trait is way to use some code in more function
+---------------------------------------------------------------------------------------
+*how create trait
+1-create file and name it ApiResponseTrait
+2-how should be like
+**ex:
+/*<?php
+
+namespace App\Http\Controllers\Api;   //change to you went
+
+trait ApiResponseTrait               // is words in stander in any trait
+{
+      public function CreateCar(){  //this function we used in any controller 
+         // any code 
+      }
+}
+*/
+----------------------------------------------------------------------------------------------
+*how we use trait in controller
+1-import name of triat  ex: use ApiResponseTrait;
+2-import function from triat in your function
+**ex:
+/* return $this->CreateCar(); */   -_- 
+------------------------------------

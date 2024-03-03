@@ -1,0 +1,11 @@
+ex:
+/*  $validator = Validator::make($request->all() ,
+        [
+            'title' => 'required' ,
+            'body' => 'required' ,
+        ]);
+
+        if($validator->fails()){
+            return $this->ApiResponse( null , $validator->errors() , 400);
+        }
+*/

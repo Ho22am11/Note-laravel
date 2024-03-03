@@ -1,0 +1,19 @@
+$what is Resource file make our can controller in data get to send to requst or api
+-----------------------------------------------------------------------------------
+1- write in terminal [ ' php artisan make:Resource PostResource ]
+-----------------------------------------------------------------
+2-go to PostResource and write  in function toArray 
+---------------------------------------------------
+3- write the element in function like this
+***ex:
+/*return [
+            'id' => $this->id ,
+            'fake_name' => $this->email ,
+        ];
+*/
+---------------------------------------------
+4-import in controller 
+*ex for elements 
+/* $posts = PostResource::collection(User::get()) ; */
+ex for one element
+/* $posts = new PostResource(User::find($id)); */

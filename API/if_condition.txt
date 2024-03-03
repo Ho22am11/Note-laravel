@@ -1,0 +1,5 @@
+$posts = User::find($id);
+if($posts){
+            return $this->ApiResponse($posts , 'ok' , 200);
+        }
+return $this->ApiResponse( null , 'not found' , 401);

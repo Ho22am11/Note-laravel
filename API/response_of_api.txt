@@ -1,0 +1,55 @@
+*how we make respone more ordinal for api
+-----------------------------------------
+1- create trait in folder controller   //trait is way to use some code in more function
+---------------------------------------------------------------------------------------
+*how create trait
+1-create file and name it ApiResponseTrait
+2-how should be like
+**ex:
+/*<?php
+
+namespace App\Http\Controllers\Api;   //change to you went
+
+trait ApiResponseTrait               // is words in stander in any trait
+{
+      public function ApiResponse($data = null , $message = null , $status = null)  // function is order json include [ data and message and status ]
+    {
+
+        $array= [
+            'data' => $data ,
+            'message' =>  $message,
+            'status' => $status,
+
+        ];
+        return response($array);
+
+    }
+}
+*/
+----------------------------------------------------------------------------------------------
+*how we use trait in controller           
+1-import name of triat  ex: use ApiResponseTrait;
+2-import function from triat in your function
+**ex:
+/*class PostController extends Controller
+{
+
+    use ApiResponseTrait;
+
+    public function index(){
+
+        $posts = Category::get();
+
+       return $this->ApiResponse($posts , 'ok' , 200);   // import ApiResponse hrer 
+
+    }
+}
+*/
+
+
+
+
+
+
+
+
