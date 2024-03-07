@@ -1,0 +1,12 @@
+*we have more object in $students
+1-we write foreach and use explode() and whereIn()
+ex*
+foreach($students as $student){
+            $ids = explode(',' , $student->id); // [ $id1 , $id2 , $id3] 
+            Student::whereIn('id' , $ids)->update(
+                [
+                    'Gender_id' => $request->Grade_id_new ,
+                    'classroom_id' => $request->Classroom_id_new,
+                    'section_id' => $request->section_id_new,
+                ]
+                );
