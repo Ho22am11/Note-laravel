@@ -40,6 +40,7 @@
                     dataType: "json",
                     success: function(data) {
                         $('select[name="classrooms"]').empty();  // classrooms is the select we will add date in it
+                        $('select[name="Classroom_id"]').append('<option  selected disabled > {{trans('Parent_trans.Choose')}} </option>');     // this code slove error : after you select 
                         $.each(data, function(key, value) {      // key and value they come from controller
                             $('select[name="classrooms"]').append('<option value="' + key + '">' + value + '</option>');
                         });
