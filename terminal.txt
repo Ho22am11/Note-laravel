@@ -1,0 +1,2 @@
+*1- php artisan mi:f --seed  //mi = migrate  //f = fresh //-seed = php artisan db:seed 
+---------------------------------------------------------------------------------------
