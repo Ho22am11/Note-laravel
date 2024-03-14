@@ -1,0 +1,33 @@
+*1- go to model and 'use SoftDeletes' 
+-------------------------------------
+**2- go to migration and '$table->softDeletes() '
+-------------------------------------------------
+***3- how make object to soft delete use delete like that :
+* ex:
+/*
+Table::find($id)->Delete();
+*/
+------------------------------------------------------------------
+****4- how  show object deleted in your table 
+*1- use onlyTrashed();
+*ex: 
+/*
+Table::onlyTrashed()->get();
+*/
+---------------------------------------------
+**_**5-how can retore object from trash
+*1- we use restore();
+*ex: 
+/*
+Table::onlyTrashed()->find($id)->restore();
+*/
+-------------------------------------------
+**_**6- how delete obleject from trash
+*1- we use forceDelete()
+ex:
+/*
+Table::onlyTrashed()->find($id)-forceDelete();
+*/
+-----------------(-_-)_______________________
+
+
