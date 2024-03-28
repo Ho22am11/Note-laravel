@@ -65,7 +65,12 @@ model::findorfail($reqest->id)->delete() == model::destroy($re-------) // both a
 -----------------------------------------------------------------------
 *action="{{ route('promotion.destroy' , 'test')}}"  // if you used route has id write 'test' switch $id 
 -------------------------------------------------------------------------------------------------------
- $table->foreignId('Grade_id')->references('id')->on('grades') ===  $table->unsignedBigInteger('to_grade') and $table->foreign('from_grade')->references('id')->on('grades')->onDelete('cascade')
+*$table->foreignId('Grade_id')->references('id')->on('grades') ===  $table->unsignedBigInteger('to_grade') and $table->foreign('from_grade')->references('id')->on('grades')
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*number_format() // بتنسق الارقام مثلا 9,000
+---------------------------------------
+*$AccountStudent->sum('colum') //sum here get all colum in table AccountStudent
+-------------------------------------------------------------------------------
 
 
 
