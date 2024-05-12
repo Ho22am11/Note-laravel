@@ -1,0 +1,71 @@
+1-route---------------------------------------------------------
+Route::get('/' , function () {
+      return view('index');
+});
+*-* 
+Route view('/' , 'index');
+------------------------------
+Route::group([ 'Middleware' => 'auth'] , function(){
+    // all your route here
+});
+----------------------------------------------------
+2-naming variable
+public function index(){
+     return view('index')->withData(Table::where('cloum' , 'cloum')->get());
+}  // in blade is $data
+*-*
+public function index(){
+     return view('index')->with('naming' ,Table::where('cloum' , 'cloum')->get());
+}  // in blade is $naming
+------------------------------------------------------------------------------------
+3-don't leave the empty methed 
+------------------------------
+4-use $request->all();
+$tables = Table::all();
+$tables->name = $request->name ;
+$tables->email = $request->email ;
+*-*
+Table::update($request->all());
+Table::create($request->all());
+// for securty  use only()
+Table::update($request->only([
+   'culme'
+   'culme'
+   'culme'
+])); // should cloum is $fililable 
+-----------------------------------------------
+5- use request for vialdetion
+---------------------------
+6-relation foregn key
+return $this->hasmany('App\Models\Grade' , 'id_cloum') ;
+*-*
+return $this->hasmany('App\Models\Grade');
+-----------------------------------------------------------------
+7-use prefix 
+route::get('books' , controller::class, index )
+route::get('books/book' , controller::class, show)
+*-*
+Route::group([ 'prefix ' => 'books' ] , function () {
+   Route::get('/' , controller::class, index )
+   Route::get('/book' , controller::class, show)
+});
+------------------------------------------------------
+8- use Route::apiResource / only()
+-------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

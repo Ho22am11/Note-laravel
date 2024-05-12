@@ -71,11 +71,25 @@ model::findorfail($reqest->id)->delete() == model::destroy($re-------) // both a
 ---------------------------------------
 *$AccountStudent->sum('colum') //sum here get all colum in table AccountStudent
 -------------------------------------------------------------------------------
+*foreach for array like that $array = [ 1 = hossam , 2 = koko , 10 = go , A = messi ] ;
+foreach ($array as $key => $value) {
+                $id = $key
+                $name = $value
+            
+        }
+---------------------------------------------------------------------------------------
+*flatMap()  // بيساوي قيمه بقيمه اللي هو Row = onther Row
+**ex:
+/*
+$collection = Table::all();
+$data['data'] =  $collection->flatMap(function ($collection){
+     return [$collection->Row => $collection->onther Row ] ;
+});
 
-
-
-
-
+return view('...' , compact('data');
+--------------------------------------------------------------
+Auth()->user()->name ;
+----------------------
 
 
 
