@@ -27,19 +27,19 @@ $how we do Polymorphic relationship
         });
 */ *_*
 -----------------------------------------------------------------------------------------------------------------------------------------------
-4-Go to aother table we related with him
+4-Go to aother table we related with him  
 ****write the relation in table
 ****ex: in Table student
 /*public function images(){
         return $this->morphMany('App\Models\image' , 'imageable');  // 'morphMany' relation one to many // 'imageable' the function we write in image table
     }
 */ -_-
------------------------------------------------------------------------------------------------------------------------------------------------------------
-$how we can used is no 
--look this code in controller and will understand
-/* public function index($id){                      //id of student
-       $students = Student::find($id)
-       $imagestudent = $students->images;          //'images' is function we write in Student Table his respensaltity of relations
-       dd($imagestudent);                         // dd() is function show the data problem
-*/ (: (; 
------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+$how we can used is no                                                                                                                                     *
+-look this code in controller and will understand                                                                                                          *
+/* public function index($id){                      //id of student                                                                                        *
+       $students = Student::find($id)                                                                                                                      *
+       $imagestudent = $students->images;          //'images' is function we write in Student Table his respensaltity of relations                         *
+       dd($imagestudent);                         // dd() is function show the data problem                                                                *
+*/ (: (;                                                                                                                                                   *
+------------------------------------------------------------------------------------------------------------------------------------------------------------

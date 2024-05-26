@@ -90,6 +90,16 @@ return view('...' , compact('data');
 --------------------------------------------------------------
 Auth()->user()->name ;
 ----------------------
+*if you have key in your request
+/*
+code /*
+foreach($request->products as $key => $itemproduct) 
+        OrderIteam::create([
+            'order_id' =>  $order->id ,
+            'prodect_id' => $key ,
+            'count' => $itemproduct['count'],
+        ]);
+*/
 
 
 

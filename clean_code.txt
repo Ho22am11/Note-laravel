@@ -51,12 +51,39 @@ Route::group([ 'prefix ' => 'books' ] , function () {
 });
 ------------------------------------------------------
 8- use Route::apiResource / only()
--------------------------
-
-
-
-
-
+----------------------------------
+9- if you went get cloum don't get all table
+Table::orderBy('column_name', 'asc')->get();   // تصاعدي
+Table::orderBy('column_name', 'desc')->get(); // تنازلي
+--------------------------------------------------------
+10-get user
+//$user = User::find(Auth::id);
+Auth()->user();
+---------------------------------------
+11-in_array
+//if( $var= 1 || $var = 2)
+if(in_array($var , [1,2]) );
+-----------------------------------------
+12-
+/*
+  $request->vialedted();
+  Table::create($request->all())
+*/
+*-*
+ Table::create($request->vialedted());  is more securty
+-------------------------------------------------------
+13- fristOrFail();
+-----------------------------
+14-
+/*
+$tables = Table::find($id)->frist();
+$tabless = Tablee::where('id_tables' , $tables->id);
+*/
+*-*
+*frist do relashinship in model
+$tables = Table::find($id)->with(name_rleationship)->get();
+*-*
+but in foreach($tables->name_rleationship);
 
 
 
